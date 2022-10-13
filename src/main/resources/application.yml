@@ -7,7 +7,7 @@ spring:
   application:
     name: "complementa-ja"
   datasource:
-    url: postgres://ycybmxmyuepmcm:a1a76aca670a25d41e4068e2e198ef1eca36b2e076ed33b5cae13e9a52536064@ec2-54-86-106-48.compute-1.amazonaws.com:5432/d7a0u7o7otvrvq
+    url: jdbc:postgresql://ec2-54-86-106-48.compute-1.amazonaws.com:5432/d7a0u7o7otvrvq
     username: ycybmxmyuepmcm
     password: a1a76aca670a25d41e4068e2e198ef1eca36b2e076ed33b5cae13e9a52536064
     driver:
