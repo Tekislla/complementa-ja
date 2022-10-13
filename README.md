@@ -1,2 +1,2 @@
-# complementa-ja
- Complementa já - Gestão de horas complementares
+# Complementa já!
+Aplicativo para gestão de horas complementares dos alunos do Centro Universitário Católica de Santa Catarina
