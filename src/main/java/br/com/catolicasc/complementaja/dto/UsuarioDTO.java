@@ -1,14 +1,7 @@
-package br.com.catolicasc.complementaja.entity;
+package br.com.catolicasc.complementaja.dto;
 
-import javax.persistence.*;
-
-@Table(name = "usuario")
-@Entity
-public class Usuario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Long cursoId;
+public class UsuarioDTO {
+    private CursoDTO curso;
     private String nome;
     private Long cpf;
     private String email;
@@ -16,20 +9,12 @@ public class Usuario {
     private Integer horasConcluidas;
     private Integer horasNecessarias;
 
-    public Long getId() {
-        return id;
+    public CursoDTO getCurso() {
+        return curso;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getCursoId() {
-        return cursoId;
-    }
-
-    public void setCursoId(Long cursoId) {
-        this.cursoId = cursoId;
+    public void setCurso(CursoDTO curso) {
+        this.curso = curso;
     }
 
     public String getNome() {

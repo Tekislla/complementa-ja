@@ -19,8 +19,7 @@ public class CursoService {
     SemestreEnum semestreEnum;
     ModalidadeEnum modalidadeEnum;
 
-
-    private CursoDTO getCurso(Curso curso) {
+    public CursoDTO getCurso(Curso curso) {
         CursoDTO dto = new CursoDTO();
         dto.setNomeCurso(cursoEnum.findCurso(curso.getCodCurso()).getDescricao());
         dto.setPeriodo(periodoEnum.findPeriodo(curso.getCodPeriodo()).getDescricao());
@@ -30,5 +29,12 @@ public class CursoService {
         return dto;
     }
 
+    public CursoDTO findById(Long id) {
+        return getCurso(repo.findById(id).get());
+    }
+
+    public Curso findByIdAndCodCursoAndCodPeriodoAndCodSemestreAndCodModalidade(Long id, Integer codCurso, Integer codPeriodo, Integer codSemestre, Integer codModalidade) {
+        return repo.findByIdAndCodCursoAndCodPeriodoAndCodSemestreAndCodModalidade(id, codCurso, codPeriodo, codSemestre, codModalidade).get();
+    }
 
 }
