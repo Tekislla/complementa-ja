@@ -1,6 +1,7 @@
 package br.com.catolicasc.complementaja.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import liquibase.pro.packaged.A;
 
 import javax.persistence.*;
 import java.io.File;
@@ -10,15 +11,35 @@ import java.util.Date;
 @Entity
 public class Documento {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "usuario_id")
     private Long usuarioId;
+
+    @Column(name = "arquivo")
     private File arquivo;
+
+    @Column(name = "nome_documento")
     private String nomeDocumento;
+
+    @Column(name = "cod_tipo_documento")
     private Integer codTipoDocumento;
+
+    @Column(name = "horas_validas")
     private Integer horasValidas;
+
+    @Column(name = "data_emissao")
     private Date dataEmissao;
+
+    @Column(name = "data_envio")
+    private Date dataEnvio;
+
+    @Column(name = "instituicao_emissora")
     private String instituicaoEmissora;
+
+    @Column(name = "aceito")
     private Boolean aceito;
 
     public Long getId() {
@@ -75,6 +96,14 @@ public class Documento {
 
     public void setDataEmissao(Date dataEmissao) {
         this.dataEmissao = dataEmissao;
+    }
+
+    public Date getDataEnvio() {
+        return dataEnvio;
+    }
+
+    public void setDataEnvio(Date dataEnvio) {
+        this.dataEnvio = dataEnvio;
     }
 
     public String getInstituicaoEmissora() {

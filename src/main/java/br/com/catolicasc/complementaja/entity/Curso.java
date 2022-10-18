@@ -6,12 +6,20 @@ import javax.persistence.*;
 @Entity
 public class Curso {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "cod_curso")
     private Integer codCurso;
+
+    @Column(name = "cod_periodo")
     private Integer codPeriodo;
+
+    @Column(name = "cod_semestre")
     private Integer codSemestre;
+
+    @Column(name = "cod_modalidade")
     private Integer codModalidade;
 
     public Long getId() {

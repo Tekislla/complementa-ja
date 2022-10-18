@@ -9,9 +9,7 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="curso_id" type="bigint">
-                <constraints foreignKeyName="fk_usuario_documento"/>
-            </column>
+            <column name="curso_id" type="bigint" />
             <column name="nome" type="varchar(80)"/>
             <column name="cpf" type="bigint"/>
             <column name="email" type="varchar(80)"/>
@@ -29,6 +27,7 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
             <column name="cod_tipo_documento" type="smallint"/>
             <column name="horas_validas" type="number"/>
             <column name="data_emissao" type="date"/>
+            <column name="data_envio" type="date"/>
             <column name="instituicao_emissora" type="varchar(120)"/>
             <column name="aceito" type="boolean"/>
         </createTable>
