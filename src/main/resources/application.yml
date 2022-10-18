@@ -1,11 +1,11 @@
 server:
   port: 8080
   servlet:
-    context-path: /complementa-ja
+    context-path: /complementaja
 
 spring:
   application:
-    name: "complementa-ja"
+    name: "complementaja"
   datasource:
     url: jdbc:postgresql://ec2-54-86-106-48.compute-1.amazonaws.com:5432/d7a0u7o7otvrvq
     username: ycybmxmyuepmcm

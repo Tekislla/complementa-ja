@@ -1,6 +1,5 @@
 package br.com.catolicasc.complementaja.service;
 
-import br.com.catolicasc.complementaja.dto.CursoDTO;
 import br.com.catolicasc.complementaja.dto.UsuarioDTO;
 import br.com.catolicasc.complementaja.entity.Usuario;
 import br.com.catolicasc.complementaja.repository.UsuarioRepository;

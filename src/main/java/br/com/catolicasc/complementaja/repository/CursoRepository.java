@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
 public interface CursoRepository extends CrudRepository<Curso, Long> {
-    public Optional<Curso> findByIdAndCodCursoAndCodPeriodoAndCodSemestreAndCodModalidade(Long id, Integer codCurso, Integer codPeriodo, Integer codSemestre, Integer codModalidade);
+    Optional<Curso> findByCodCursoAndCodPeriodoAndCodSemestreAndCodModalidade(Integer codCurso, Integer codPeriodo, Integer codSemestre, Integer codModalidade);
 
 }

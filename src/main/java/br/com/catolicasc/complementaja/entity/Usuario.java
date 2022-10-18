@@ -6,14 +6,29 @@ import javax.persistence.*;
 @Entity
 public class Usuario {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "curso_id")
     private Long cursoId;
+
+    @Column(name = "nome")
     private String nome;
+
+    @Column(name = "cpf")
     private Long cpf;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "senha")
     private String senha;
+
+    @Column(name = "horas_concluidas")
     private Integer horasConcluidas;
+
+    @Column(name = "horas_necessarias")
     private Integer horasNecessarias;
 
     public Long getId() {

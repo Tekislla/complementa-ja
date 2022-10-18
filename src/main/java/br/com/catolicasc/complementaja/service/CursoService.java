@@ -10,6 +10,9 @@ import br.com.catolicasc.complementaja.repository.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class CursoService {
     @Autowired
@@ -29,12 +32,20 @@ public class CursoService {
         return dto;
     }
 
+    public List<CursoDTO> findAll() {
+        List<CursoDTO> cursos = new ArrayList<>();
+        repo.findAll().forEach(curso -> {
+            cursos.add(getCurso(curso));
+        });
+        return cursos;
+    }
+
     public CursoDTO findById(Long id) {
         return getCurso(repo.findById(id).get());
     }
 
-    public Curso findByIdAndCodCursoAndCodPeriodoAndCodSemestreAndCodModalidade(Long id, Integer codCurso, Integer codPeriodo, Integer codSemestre, Integer codModalidade) {
-        return repo.findByIdAndCodCursoAndCodPeriodoAndCodSemestreAndCodModalidade(id, codCurso, codPeriodo, codSemestre, codModalidade).get();
+    public Curso findByCodCursoAndCodPeriodoAndCodSemestreAndCodModalidade(Integer codCurso, Integer codPeriodo, Integer codSemestre, Integer codModalidade) {
+        return repo.findByCodCursoAndCodPeriodoAndCodSemestreAndCodModalidade(codCurso, codPeriodo, codSemestre, codModalidade).get();
     }
 
 }
