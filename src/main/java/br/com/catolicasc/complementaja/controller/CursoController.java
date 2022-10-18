@@ -6,6 +6,7 @@ import br.com.catolicasc.complementaja.entity.Curso;
 import br.com.catolicasc.complementaja.service.CursoService;
 import br.com.catolicasc.complementaja.service.DocumentoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,8 +19,8 @@ public class CursoController {
     CursoService service;
 
     @GetMapping(value = "/")
-    public List<CursoDTO> listAll() {
-        return service.findAll();
+    public ResponseEntity<List<CursoDTO>> listAll() {
+        return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping(value = "/{id}")
