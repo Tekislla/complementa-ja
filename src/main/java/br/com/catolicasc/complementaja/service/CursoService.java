@@ -22,7 +22,6 @@ public class CursoService {
     SemestreEnum semestreEnum;
     ModalidadeEnum modalidadeEnum;
 
-
     public CursoDTO getCurso(Curso curso) {
         CursoDTO dto = new CursoDTO();
         dto.setNomeCurso(cursoEnum.findCurso(curso.getCodCurso()).getDescricao());
