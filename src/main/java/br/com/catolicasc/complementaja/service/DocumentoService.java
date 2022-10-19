@@ -58,7 +58,7 @@ public class DocumentoService {
 
     public List<DocumentoDTO> findByUsuarioId(Long usuarioId) {
         List<DocumentoDTO> documentos = new ArrayList<>();
-        repo.findAll().forEach(documento -> {
+        repo.findByUsuarioId(usuarioId).forEach(documento -> {
             documentos.add(getDocumento(documento));
         });
         return documentos;
