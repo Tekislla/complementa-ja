@@ -73,7 +73,8 @@ Aplicativo para gestão de horas complementares dos alunos do Centro Universitá
 
     👉🏻 Sempre abrir issues (cards) no projeto para qualquer tarefa relacionada ao projeto
     
-    👉🏻 Manter as issues no estágio correto de desenvolvimento (pronta pra fazer, em desenvolvimento, pronta pra teste, etc.)
+    👉🏻 Manter as issues no estágio correto de desenvolvimento (pronta pra fazer, em desenvolvimento,
+    pronta pra teste, etc.)
     
     👉🏻 Fechar as issues quando concluídas
 <br>
