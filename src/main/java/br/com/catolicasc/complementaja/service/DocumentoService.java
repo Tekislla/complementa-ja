@@ -125,12 +125,14 @@ public class DocumentoService {
 
     public void aceitarDocumento(Long id) {
         Documento documento = repo.findById(id).get();
-        Usuario usuario = usuarioRepository.findById(id).get();
-        usuario.setHorasConcluidas(usuario.getHorasConcluidas() + documento.getHorasValidas());
-        documento.setAceito(true);
 
-        usuarioRepository.save(usuario);
-        repo.save(documento);
+        if (!documento.getAceito() || documento.getAceito() == null) {
+            Usuario usuario = usuarioRepository.findById(id).get();
+            usuario.setHorasConcluidas(usuario.getHorasConcluidas() + documento.getHorasValidas());
+            documento.setAceito(true);
+            usuarioRepository.save(usuario);
+            repo.save(documento);
+        }
     }
 
     public void recusarDocumento(Long id) {
