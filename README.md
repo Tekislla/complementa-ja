@@ -83,4 +83,4 @@ Aplicativo para gestão de horas complementares dos alunos do Centro Universitá
 <br>
 <br>
 <br>
-<p align="right">✍🏻 João Pedro Lazarim</p>
+<p align="right">João Pedro Lazarim ✍🏻</p>
