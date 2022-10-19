@@ -17,3 +17,5 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+  main:
+    allow-circular-references: true

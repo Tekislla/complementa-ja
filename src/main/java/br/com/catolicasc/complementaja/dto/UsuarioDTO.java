@@ -1,7 +1,5 @@
 package br.com.catolicasc.complementaja.dto;
 
-import br.com.catolicasc.complementaja.entity.Documento;
-
 import java.util.List;
 
 public class UsuarioDTO {
@@ -11,8 +9,8 @@ public class UsuarioDTO {
     private String senha;
     private Integer horasConcluidas;
     private Integer horasNecessarias;
-    private List<Documento> documentos;
     private CursoDTO curso;
+    private List<DocumentoUsuarioDetalheDTO> documentos;
 
     public String getNome() {
         return nome;
@@ -62,19 +60,19 @@ public class UsuarioDTO {
         this.horasNecessarias = horasNecessarias;
     }
 
-    public List<Documento> getDocumentos() {
-        return documentos;
-    }
-
-    public void setDocumentos(List<Documento> documentos) {
-        this.documentos = documentos;
-    }
-
     public CursoDTO getCurso() {
         return curso;
     }
 
     public void setCurso(CursoDTO curso) {
         this.curso = curso;
+    }
+
+    public List<DocumentoUsuarioDetalheDTO> getDocumentos() {
+        return documentos;
+    }
+
+    public void setDocumentos(List<DocumentoUsuarioDetalheDTO> documentos) {
+        this.documentos = documentos;
     }
 }

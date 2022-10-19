@@ -46,11 +46,4 @@ public class UsuarioService {
             return null;
         }
     }
-
-    public void validaHoras(Long id, Integer horas) {
-        Usuario usuario = repo.findById(id).get();
-        usuario.setHorasConcluidas(usuario.getHorasConcluidas() + horas);
-
-        repo.save(usuario);
-    }
 }
