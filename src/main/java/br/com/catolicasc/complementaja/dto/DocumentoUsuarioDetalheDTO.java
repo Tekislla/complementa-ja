@@ -4,8 +4,7 @@ import br.com.catolicasc.complementaja.entity.Usuario;
 
 import java.util.Date;
 
-public class DocumentoDTO {
-    private Usuario usuario;
+public class DocumentoUsuarioDetalheDTO {
     private String nomeDocumento;
     private String tipoDocumento;
     private Integer horasValidas;
@@ -14,14 +13,6 @@ public class DocumentoDTO {
     private String instituicaoEmissora;
     private Boolean aceito;
     private byte[] arquivo;
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
     public String getNomeDocumento() {
         return nomeDocumento;

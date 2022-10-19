@@ -15,8 +15,13 @@ public class UsuarioController {
     UsuarioService service;
 
     @GetMapping(value = "/{id}")
-    public UsuarioDTO findById(@PathVariable Long id) {
-        return service.findById(id);
+    public ResponseEntity<UsuarioDTO> findById(@PathVariable Long id) {
+        UsuarioDTO u = service.findById(id);
+        if (u != null) {
+            return ResponseEntity.ok(u);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping(value = "/login")
@@ -25,7 +30,7 @@ public class UsuarioController {
         if (u != null) {
             return ResponseEntity.ok().body(u);
         } else {
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.notFound().build();
         }
     }
 

@@ -3,6 +3,7 @@ package br.com.catolicasc.complementaja.service;
 import br.com.catolicasc.complementaja.dto.DocumentoDTO;
 import br.com.catolicasc.complementaja.dto.DocumentoEnvioDTO;
 import br.com.catolicasc.complementaja.dto.DocumentoResponseDTO;
+import br.com.catolicasc.complementaja.dto.DocumentoUsuarioDetalheDTO;
 import br.com.catolicasc.complementaja.entity.Documento;
 import br.com.catolicasc.complementaja.entity.Usuario;
 import br.com.catolicasc.complementaja.enums.TipoDocumentoEnum;
@@ -41,6 +42,7 @@ public class DocumentoService {
 
     public DocumentoResponseDTO getDocumentoResponse(Documento documento) {
         DocumentoResponseDTO dto = new DocumentoResponseDTO();
+        dto.setId(documento.getId());
         dto.setUsuario(usuarioRepository.findById(documento.getUsuarioId()).get());
         dto.setUrlDownload(null);
         dto.setNomeDocumento(documento.getNomeDocumento());
@@ -54,10 +56,24 @@ public class DocumentoService {
         return dto;
     }
 
-    public List<DocumentoDTO> findByUsuarioId(Long usuarioId) {
-        List<DocumentoDTO> documentos = new ArrayList<>();
+    public DocumentoUsuarioDetalheDTO getDocumentoUsuarioDetalhe(Documento documento) {
+        DocumentoUsuarioDetalheDTO dto = new DocumentoUsuarioDetalheDTO();
+        dto.setNomeDocumento(documento.getNomeDocumento());
+        dto.setTipoDocumento(TipoDocumentoEnum.findTipoDocumento(documento.getCodTipoDocumento()).getDescricao());
+        dto.setHorasValidas(documento.getHorasValidas());
+        dto.setDataEmissao(documento.getDataEmissao());
+        dto.setDataEnvio(documento.getDataEnvio());
+        dto.setInstituicaoEmissora(documento.getInstituicaoEmissora());
+        dto.setAceito(documento.getAceito());
+        dto.setArquivo(documento.getArquivo());
+
+        return dto;
+    }
+
+    public List<DocumentoUsuarioDetalheDTO> findByUsuarioId(Long usuarioId) {
+        List<DocumentoUsuarioDetalheDTO> documentos = new ArrayList<>();
         repo.findByUsuarioId(usuarioId).forEach(documento -> {
-            documentos.add(getDocumento(documento));
+            documentos.add(getDocumentoUsuarioDetalhe(documento));
         });
         return documentos;
     }
@@ -111,15 +127,19 @@ public class DocumentoService {
         Documento documento = repo.findById(id).get();
         Usuario usuario = usuarioRepository.findById(id).get();
         usuario.setHorasConcluidas(usuario.getHorasConcluidas() + documento.getHorasValidas());
+        documento.setAceito(true);
 
         usuarioRepository.save(usuario);
-
-
         repo.save(documento);
     }
 
     public void recusarDocumento(Long id) {
         Documento documento = repo.findById(id).get();
+        if (documento.getAceito()) {
+            Usuario usuario = usuarioRepository.findById(id).get();
+            usuario.setHorasConcluidas(usuario.getHorasConcluidas() - documento.getHorasValidas());
+            usuarioRepository.save(usuario);
+        }
         documento.setAceito(false);
 
         repo.save(documento);

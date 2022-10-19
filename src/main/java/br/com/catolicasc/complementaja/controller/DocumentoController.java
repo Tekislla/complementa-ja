@@ -52,7 +52,11 @@ public class DocumentoController {
             return documento;
         }).collect(Collectors.toList());
 
-        return ResponseEntity.status(HttpStatus.OK).body(files);
+        if (!files.isEmpty() || files != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(files);
+        } else {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(files);
+        }
     }
 
     @GetMapping(value = "/aceitos/{usuarioId}")
@@ -68,7 +72,12 @@ public class DocumentoController {
             return documento;
         }).collect(Collectors.toList());
 
-        return ResponseEntity.status(HttpStatus.OK).body(files);
+        if (!files.isEmpty() || files != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(files);
+        } else {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(files);
+        }
+
     }
 
     @GetMapping(value = "/recusados/{usuarioId}")
@@ -84,7 +93,11 @@ public class DocumentoController {
             return documento;
         }).collect(Collectors.toList());
 
-        return ResponseEntity.status(HttpStatus.OK).body(files);
+        if (!files.isEmpty() || files != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(files);
+        } else {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(files);
+        }
     }
 
     @PostMapping(value = "/aceitar/{id}")
