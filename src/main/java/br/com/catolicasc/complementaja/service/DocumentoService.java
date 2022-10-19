@@ -1,18 +1,16 @@
 package br.com.catolicasc.complementaja.service;
 
-import br.com.catolicasc.complementaja.dto.CursoDTO;
 import br.com.catolicasc.complementaja.dto.DocumentoDTO;
 import br.com.catolicasc.complementaja.dto.DocumentoEnvioDTO;
 import br.com.catolicasc.complementaja.dto.DocumentoResponseDTO;
 import br.com.catolicasc.complementaja.entity.Documento;
+import br.com.catolicasc.complementaja.entity.Usuario;
 import br.com.catolicasc.complementaja.enums.TipoDocumentoEnum;
 import br.com.catolicasc.complementaja.repository.DocumentoRepository;
+import br.com.catolicasc.complementaja.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,11 +22,11 @@ public class DocumentoService {
     DocumentoRepository repo;
 
     @Autowired
-    UsuarioService usuarioService;
+    UsuarioRepository usuarioRepository;
 
     public DocumentoDTO getDocumento(Documento documento) {
         DocumentoDTO dto = new DocumentoDTO();
-        dto.setUsuario(usuarioService.findById(documento.getUsuarioId()));
+        dto.setUsuario(usuarioRepository.findById(documento.getUsuarioId()).get());
         dto.setArquivo(documento.getArquivo());
         dto.setNomeDocumento(documento.getNomeDocumento());
         dto.setTipoDocumento(TipoDocumentoEnum.findTipoDocumento(documento.getCodTipoDocumento()).getDescricao());
@@ -43,7 +41,7 @@ public class DocumentoService {
 
     public DocumentoResponseDTO getDocumentoResponse(Documento documento) {
         DocumentoResponseDTO dto = new DocumentoResponseDTO();
-        dto.setUsuario(usuarioService.findById(documento.getUsuarioId()));
+        dto.setUsuario(usuarioRepository.findById(documento.getUsuarioId()).get());
         dto.setUrlDownload(null);
         dto.setNomeDocumento(documento.getNomeDocumento());
         dto.setTipoDocumento(TipoDocumentoEnum.findTipoDocumento(documento.getCodTipoDocumento()).getDescricao());
@@ -111,8 +109,11 @@ public class DocumentoService {
 
     public void aceitarDocumento(Long id) {
         Documento documento = repo.findById(id).get();
-        usuarioService.validaHoras(documento.getUsuarioId(), documento.getHorasValidas());
-        documento.setAceito(true);
+        Usuario usuario = usuarioRepository.findById(id).get();
+        usuario.setHorasConcluidas(usuario.getHorasConcluidas() + documento.getHorasValidas());
+
+        usuarioRepository.save(usuario);
+
 
         repo.save(documento);
     }

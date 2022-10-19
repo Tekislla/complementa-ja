@@ -1,11 +1,13 @@
 package br.com.catolicasc.complementaja.dto;
 
+import br.com.catolicasc.complementaja.entity.Usuario;
+
 import java.util.Date;
 
 public class DocumentoResponseDTO {
     private Long id;
     private String urlDownload;
-    private UsuarioDTO usuario;
+    private Usuario usuario;
     private String nomeDocumento;
     private String tipoDocumento;
     private Integer horasValidas;
@@ -30,11 +32,11 @@ public class DocumentoResponseDTO {
         this.urlDownload = urlDownload;
     }
 
-    public UsuarioDTO getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(UsuarioDTO usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 

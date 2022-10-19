@@ -1,9 +1,11 @@
 package br.com.catolicasc.complementaja.dto;
 
+import br.com.catolicasc.complementaja.entity.Usuario;
+
 import java.util.Date;
 
 public class DocumentoDTO {
-    private UsuarioDTO usuario;
+    private Usuario usuario;
     private byte[] arquivo;
     private String nomeDocumento;
     private String tipoDocumento;
@@ -13,11 +15,11 @@ public class DocumentoDTO {
     private String instituicaoEmissora;
     private Boolean aceito;
 
-    public UsuarioDTO getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(UsuarioDTO usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 

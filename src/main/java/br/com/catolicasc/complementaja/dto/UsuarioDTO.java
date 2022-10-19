@@ -1,7 +1,5 @@
 package br.com.catolicasc.complementaja.dto;
 
-import br.com.catolicasc.complementaja.entity.Documento;
-
 import java.util.List;
 
 public class UsuarioDTO {
