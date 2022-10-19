@@ -1,67 +1,26 @@
-package br.com.catolicasc.complementaja.entity;
+package br.com.catolicasc.complementaja.dto;
 
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.persistence.*;
-import java.io.File;
-import java.util.Date;
-
-@Table(name = "documento")
-@Entity
-public class Documento {
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "usuario_id")
+public class DocumentoEnvioDTO {
     private Long usuarioId;
-
-    @Column(name = "arquivo")
     private byte[] arquivo;
-
-    @Column(name = "nome_documento")
     private String nomeDocumento;
-
-    @Column(name = "cod_tipo_documento")
     private Integer codTipoDocumento;
-
-    @Column(name = "horas_validas")
     private Integer horasValidas;
-
-    @Column(name = "data_emissao")
-    private Date dataEmissao;
-
-    @Column(name = "data_envio")
-    private Date dataEnvio;
-
-    @Column(name = "instituicao_emissora")
+    private String dataEmissao;
     private String instituicaoEmissora;
 
-    @Column(name = "aceito")
-    private Boolean aceito;
-
-    public Documento() {
+    public DocumentoEnvioDTO() {
 
     }
 
-    public Documento(Long usuarioId, byte[] arquivo, String nomeDocumento, Integer codTipoDocumento, Integer horasValidas, Date dataEmissao, Date dataEnvio, String instituicaoEmissora, Boolean aceito) {
+    public DocumentoEnvioDTO(Long usuarioId, byte[] arquivo, String nomeDocumento, Integer codTipoDocumento, Integer horasValidas, String dataEmissao, String instituicaoEmissora) {
         this.usuarioId = usuarioId;
         this.arquivo = arquivo;
         this.nomeDocumento = nomeDocumento;
         this.codTipoDocumento = codTipoDocumento;
         this.horasValidas = horasValidas;
         this.dataEmissao = dataEmissao;
-        this.dataEnvio = dataEnvio;
         this.instituicaoEmissora = instituicaoEmissora;
-        this.aceito = aceito;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getUsuarioId() {
@@ -104,20 +63,12 @@ public class Documento {
         this.horasValidas = horasValidas;
     }
 
-    public Date getDataEmissao() {
+    public String getDataEmissao() {
         return dataEmissao;
     }
 
-    public void setDataEmissao(Date dataEmissao) {
+    public void setDataEmissao(String dataEmissao) {
         this.dataEmissao = dataEmissao;
-    }
-
-    public Date getDataEnvio() {
-        return dataEnvio;
-    }
-
-    public void setDataEnvio(Date dataEnvio) {
-        this.dataEnvio = dataEnvio;
     }
 
     public String getInstituicaoEmissora() {
@@ -126,13 +77,5 @@ public class Documento {
 
     public void setInstituicaoEmissora(String instituicaoEmissora) {
         this.instituicaoEmissora = instituicaoEmissora;
-    }
-
-    public Boolean getAceito() {
-        return aceito;
-    }
-
-    public void setAceito(Boolean aceito) {
-        this.aceito = aceito;
     }
 }

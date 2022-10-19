@@ -11,7 +11,7 @@ public class UsuarioDTO {
     private String senha;
     private Integer horasConcluidas;
     private Integer horasNecessarias;
-    private List<Documento> documentos;
+    private List<DocumentoDTO> documentos;
     private CursoDTO curso;
 
     public String getNome() {
@@ -62,11 +62,11 @@ public class UsuarioDTO {
         this.horasNecessarias = horasNecessarias;
     }
 
-    public List<Documento> getDocumentos() {
+    public List<DocumentoDTO> getDocumentos() {
         return documentos;
     }
 
-    public void setDocumentos(List<Documento> documentos) {
+    public void setDocumentos(List<DocumentoDTO> documentos) {
         this.documentos = documentos;
     }
 
