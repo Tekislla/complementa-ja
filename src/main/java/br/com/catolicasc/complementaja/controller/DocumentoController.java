@@ -31,7 +31,7 @@ public class DocumentoController {
     }
 
     @GetMapping(value = "/download/{id}")
-    public ResponseEntity<byte[]> getFile(@PathVariable Long id) throws IOException {
+    public ResponseEntity<byte[]> download(@PathVariable Long id) throws IOException {
         DocumentoDTO doc = service.findById(id);
 
         return ResponseEntity.ok()
