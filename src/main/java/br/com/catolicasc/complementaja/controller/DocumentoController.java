@@ -100,15 +100,15 @@ public class DocumentoController {
         }
     }
 
-    @PostMapping(value = "/aceitar/{id}")
-    public ResponseEntity aceitarDocumento(@PathVariable Long id) {
-        service.aceitarDocumento(id);
+    @PostMapping(value = "/aceitar/{userId}/{docId}")
+    public ResponseEntity aceitarDocumento(@PathVariable(name = "userId") Long userId, @PathVariable(name = "docId") Long docId) {
+        service.aceitarDocumento(userId, docId);
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping(value = "/recusar/{id}")
-    public ResponseEntity recusarDocumento(@PathVariable Long id) {
-        service.recusarDocumento(id);
+    @PostMapping(value = "/recusar/{userId}/{docId}")
+    public ResponseEntity recusarDocumento(@PathVariable(name = "userId") Long userId, @PathVariable(name = "docId") Long docId) {
+        service.recusarDocumento(userId, docId);
         return ResponseEntity.ok().build();
     }
 
