@@ -6,7 +6,6 @@ public class UsuarioDTO {
     private String nome;
     private Long cpf;
     private String email;
-    private String senha;
     private Integer horasConcluidas;
     private Integer horasNecessarias;
     private CursoDTO curso;
@@ -34,14 +33,6 @@ public class UsuarioDTO {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public Integer getHorasConcluidas() {

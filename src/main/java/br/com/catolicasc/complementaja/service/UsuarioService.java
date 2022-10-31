@@ -25,7 +25,6 @@ public class UsuarioService {
         dto.setNome(usuario.getNome());
         dto.setCpf(usuario.getCpf());
         dto.setEmail(usuario.getEmail());
-        dto.setSenha(usuario.getSenha());
         dto.setCurso(cursoService.findById(usuario.getCursoId()));
         dto.setHorasConcluidas(usuario.getHorasConcluidas());
         dto.setHorasNecessarias(usuario.getHorasNecessarias());
