@@ -7,9 +7,9 @@ spring:
   application:
     name: "complementaja"
   datasource:
-    url: jdbc:postgresql://ec2-54-86-106-48.compute-1.amazonaws.com:5432/d7a0u7o7otvrvq
-    username: ycybmxmyuepmcm
-    password: a1a76aca670a25d41e4068e2e198ef1eca36b2e076ed33b5cae13e9a52536064
+    url: jdbc:postgresql://complementa-ja.ceckwqxpfx84.sa-east-1.rds.amazonaws.com:5432/complementa_ja
+    username: postgres
+    password: postgres
     driver:
       class: org.hibernate.dialect.PostgreSQL10Dialect
   liquibase:
