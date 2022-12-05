@@ -2,7 +2,7 @@ package br.com.catolicasc.complementaja.enums;
 
 public enum TipoDocumentoEnum {
     CERTIFICADO_CURSO(1, "Certificado de curso"),
-    CERTIFICADO_PALESTRA(2, "Certificado de participação palestra"),
+    CERTIFICADO_PALESTRA(2, "Certificado de participação em palestra"),
     CERTIFICADO_PROJETO_SOCIAL(3, "Certificado de participação em projeto social"),
     OUTROS(4, "Outros");
 

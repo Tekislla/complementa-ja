@@ -22,6 +22,7 @@ public class UsuarioService {
 
     public UsuarioDTO getUsuario(Usuario usuario) {
         UsuarioDTO dto = new UsuarioDTO();
+        dto.setId(usuario.getId());
         dto.setNome(usuario.getNome());
         dto.setCpf(usuario.getCpf());
         dto.setEmail(usuario.getEmail());

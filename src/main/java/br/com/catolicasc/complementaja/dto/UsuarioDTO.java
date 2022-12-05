@@ -3,6 +3,7 @@ package br.com.catolicasc.complementaja.dto;
 import java.util.List;
 
 public class UsuarioDTO {
+    private Long id;
     private String nome;
     private Long cpf;
     private String email;
@@ -10,6 +11,14 @@ public class UsuarioDTO {
     private Integer horasNecessarias;
     private CursoDTO curso;
     private List<DocumentoUsuarioDetalheDTO> documentos;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
