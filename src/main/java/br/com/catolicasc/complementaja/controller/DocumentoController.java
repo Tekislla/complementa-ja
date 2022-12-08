@@ -25,8 +25,8 @@ public class DocumentoController {
     DocumentoService service;
 
     @PostMapping(value = "/enviar")
-    public ResponseEntity<DocumentoDTO> enviarDocumento(@RequestParam Long usuarioId, @RequestParam MultipartFile arquivo, @RequestParam String nomeDocumento, @RequestParam Integer codTipoDocumento, @RequestParam Integer horasValidas, @RequestParam String dataEmissao, @RequestParam String instituicaoEmissora) throws IOException, ParseException {
-        DocumentoEnvioDTO doc = new DocumentoEnvioDTO(usuarioId, arquivo.getBytes(), nomeDocumento, codTipoDocumento, horasValidas, dataEmissao, instituicaoEmissora);
+    public ResponseEntity<DocumentoDTO> enviarDocumento(@RequestParam String usuarioId, @RequestParam MultipartFile arquivo, @RequestParam String nomeDocumento, @RequestParam String codTipoDocumento, @RequestParam String horasValidas, @RequestParam String dataEmissao, @RequestParam String instituicaoEmissora) throws IOException, ParseException {
+        DocumentoEnvioDTO doc = new DocumentoEnvioDTO(Long.parseLong(usuarioId), arquivo.getBytes(), nomeDocumento, Integer.parseInt(codTipoDocumento), Integer.parseInt(horasValidas), dataEmissao, instituicaoEmissora);
         return ResponseEntity.ok().body(service.enviarDocumento(doc));
     }
 
