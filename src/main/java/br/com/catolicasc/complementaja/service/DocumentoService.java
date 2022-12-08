@@ -137,12 +137,16 @@ public class DocumentoService {
 
     public void recusarDocumento(Long userId, Long docId) {
         Documento documento = repo.findById(docId).get();
-        if (documento.getAceito()) {
+        if (documento.getAceito() == null) {
+            documento.setAceito(false);
+        } else if (documento.getAceito()) {
             Usuario usuario = usuarioRepository.findById(userId).get();
             usuario.setHorasConcluidas(usuario.getHorasConcluidas() - documento.getHorasValidas());
             usuarioRepository.save(usuario);
+            documento.setAceito(false);
+        } else {
+            documento.setAceito(false);
         }
-        documento.setAceito(false);
 
         repo.save(documento);
     }
