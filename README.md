@@ -17,7 +17,7 @@ Aplicativo para gestão de horas complementares dos alunos do Centro Universitá
 <br>
 2️⃣ Entrar no workspace do postman (solicitar acesso à mim):
 
-    👉🏻 Seção LOCAL: Testar os endpoints enquanto roda a aplicação na sua máquina (localhost
+    👉🏻 Seção LOCAL: Testar os endpoints enquanto roda a aplicação na sua máquina (localhost)
     
     👉🏻 Seção NUVEM: Chamar os endpoints da aplicação deployada na nuvem (heroku)
 <br>
@@ -78,6 +78,37 @@ Aplicativo para gestão de horas complementares dos alunos do Centro Universitá
     
     👉🏻 Fechar as issues quando concluídas
 <br>
+🔟 Endpoints
+
+    👉🏻 Ao enviar um documento, verificar no banco de dados o envio do documento, via postman:
+    
+      👉🏻 https://complementa-ja.herokuapp.com/complementaja/usuario/{{usuarioId}}
+      
+    👉🏻 Para realizar o aceite do documento:
+    
+      👉🏻 https://complementa-ja.herokuapp.com/complementaja/documento/aceitar/{{usuarioId}}/{{documentoId}}
+      
+    👉🏻 Para recusar o documento:
+    
+      👉🏻 https://complementa-ja.herokuapp.com/complementaja/documento/recusar/{{usuarioId}}/{{documentoId}}
+    
+    👉🏻 Para visualizar os documentos pendentes de aprovação/reprovação:
+    
+      👉🏻 https://complementa-ja.herokuapp.com/complementaja/documento/pendentes/{{usuarioId}}
+    
+    👉🏻 Para visualizar os documentos aprovados:
+    
+      👉🏻 https://complementa-ja.herokuapp.com/complementaja/documento/aceitos/{{usuarioId}}
+    
+    👉🏻 Para visualizar os documentos recusados:
+    
+      👉🏻 https://complementa-ja.herokuapp.com/complementaja/documento/recusados/{{usuarioId}}
+      
+    👉🏻 Para fazer o download de um documento:
+    
+      👉🏻 https://complementa-ja.herokuapp.com/complementaja/documento/download/{{documentoId}}
+      ✍🏻 Este endpoint só funciona pelo navegador, pelo postman ele não faz o download
+ <br>
 ⚠ Qualquer dúvida, entrar em contato comigo
 <br>
 <br>
