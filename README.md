@@ -1,5 +1,8 @@
 # Complementa já!
 Aplicativo para gestão de horas complementares dos alunos do Centro Universitário Católica de Santa Catarina
+
+
+🧠 Repositório front-end: https://github.com/atjulia/complementa-ja
 <br>
 <br>
 **⚠ INSTRUÇÕES ⚠**
