@@ -1,2 +1,2 @@
 # complementa-ja
-Aplicativo mobile desenvolvido para gestão de horas complementares da PUC
+Aplicativo mobile desenvolvido para a gestão de horas complementares da PUC
