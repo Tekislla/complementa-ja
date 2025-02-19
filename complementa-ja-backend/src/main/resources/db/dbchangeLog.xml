@@ -1,0 +1,44 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="1" author="Lazarim">
+        <createTable tableName="usuario">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="curso_id" type="bigint" />
+            <column name="nome" type="varchar(80)"/>
+            <column name="cpf" type="bigint"/>
+            <column name="email" type="varchar(80)"/>
+            <column name="senha" type="varchar(80)"/>
+            <column name="horas_concluidas" type="number"/>
+            <column name="horas_necessarias" type="number"/>
+        </createTable>
+        <createTable tableName="documento">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="usuario_id" type="bigint"/>
+            <column name="arquivo" type="bytea"/>
+            <column name="nome_documento" type="varchar(80)"/>
+            <column name="cod_tipo_documento" type="smallint"/>
+            <column name="horas_validas" type="number"/>
+            <column name="data_emissao" type="date"/>
+            <column name="data_envio" type="date"/>
+            <column name="instituicao_emissora" type="varchar(120)"/>
+            <column name="aceito" type="boolean"/>
+        </createTable>
+        <createTable tableName="curso">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="cod_curso" type="smallint"/>
+            <column name="cod_periodo" type="smallint"/>
+            <column name="cod_semestre" type="smallint"/>
+            <column name="cod_modalidade" type="smallint"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

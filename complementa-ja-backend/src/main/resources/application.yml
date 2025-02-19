@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /complementaja
+
+spring:
+  application:
+    name: "complementaja"
+  datasource:
+    url: jdbc:postgresql://ec2-3-228-235-79.compute-1.amazonaws.com:5432/d3vse4vnjjfrrv
+    username: fcajklhqegxkau
+    password: ae379331f77e8a6a464d595356540674090d66f5bf435b232101075b6c4d0525
+    driver:
+      class: org.hibernate.dialect.PostgreSQL10Dialect
+  liquibase:
+    change-log: classpath:/db/dbchangeLog.xml
+  jpa:
+    hibernate:
+      ddl-auto: none
+  main:
+    allow-circular-references: true
